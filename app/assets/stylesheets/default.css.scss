@@ -1,0 +1,161 @@
+//Var
+$header-height: 55px;
+$content-width: 700px;
+
+$serif-families: "Pacifico", "Georgia", serif;
+$sans-serif-families: "Helvetica", sans-serif;
+
+$error-text-color: #B94A48;
+$success-text-color: #468847;
+
+//Code
+
+*{
+  font-family: $sans-serif-families;
+  font-size: 14px;
+}
+
+body{ background: #f5f5f5; }
+
+@mixin shadow($color, $x, $y, $radius){
+  -moz-box-shadow: $color $x $y $radius;
+  -webkit-box-shadow: $color $x $y $radius;
+  box-shadow: $color $x $y $radius;
+}
+
+header{
+  @include shadow(#ccc, 0, 3px, 6px);
+  
+  border-bottom: 1px solid #686;
+  margin-bottom: 15px;
+  
+  #header-wrap{
+    width: $content-width;
+    margin: 0 auto;
+  }
+  
+  height: $header-height;
+  background-color: #9ECE71;
+  
+  h1{
+    float: left;
+    
+    a{
+      color: #333;
+      font-family: $serif-families;
+      font-weight: 400;
+      font-size: 2.5em;
+      &:hover{
+        color: #000;
+      }
+    }
+  }
+  
+  nav{
+    float: right;
+    
+    ul{
+      display: inline-block;
+      line-height: 55px;
+      vertical-align: middle;
+    }
+    
+    li{
+      background: #546F3C;
+      border-radius: 5px;
+      display: inline-block;
+      line-height: 24px;
+      padding: 3px 10px;
+      vertical-align: middle;
+      
+      a{
+        color: #fff;
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+#content{
+  margin: 0 auto;
+  text-align: left;
+  width: $content-width;
+  
+  a, a:visited{
+    color: #242;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  
+  ul, form, p{
+    margin: 10px 0;
+  }
+  
+  form{
+    label{
+      color: #444;
+      display: block;
+      margin: 5px 0;
+    }
+    input[type=text], input[type=password], textarea{
+      border: 1px solid #ccc;
+      color: #444;
+      font-size: 12px;
+      outline: 0;
+      width: 200px;
+      
+      @include shadow(rgba(0, 0, 0, .1), 0px, 0px, 8px);
+      &:focus{
+        border: 1px solid #c9c9c9;
+      }
+    }
+    textarea{
+      height: 200px;
+      width: 400px;
+    }
+  }
+}
+
+.fields_with_errors{
+  display: inline;
+  
+  label{ color: $error-text-color; }
+  input[type=text], input[type=password], textarea{
+    border: 1px solid rgba(189, 74, 72, .5);
+    
+    @include shadow(rgba(189, 74, 72, .2), 0, 0, 8px);
+    &:focus{ border: 1px solid rgba(189, 74, 72, .6); }
+  }
+}
+
+.error_message{
+  color: $error-text-color;
+  display: inline;
+  margin-left: 5px;
+}
+
+.padded_flash{
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 10px;
+  width: 500px;
+}
+
+#error_explanation, #alert{
+  background: #F2DEDE;
+  border: 1px solid $error-text-color;
+  color: $error-text-color;
+  
+  @extend .padded_flash;
+}
+
+#notice{
+  background: #DFF0D8;
+  border: 1px solid $success-text-color;
+  color: $success-text-color;
+  
+  @extend .padded_flash;
+}
