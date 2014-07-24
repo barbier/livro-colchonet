@@ -202,6 +202,26 @@ pt:
       long: ! '%d de %B de %Y, %H:%M'
       short: ! '%d de %B, %H:%M'
     pm: ''
+  
+  # Interface
+  users:
+    new:
+      title: Cadastro
+    edit:
+      title: Editar Perfil
+    show:
+      bio: "Bio: %{bio}"
+      edit: 'Editar Perfil'
+      location: "Localização: %{location}"
+      title: "Perfil: %{user_name}"
+  links:
+    back: Voltar
+  layout:
+    rooms: Quartos
+    signup: Cadastro
+  general:
+    form_error: Há erros no formulário, por favor verifique.
+  
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:
@@ -209,3 +229,18 @@ pt:
   activerecord:
     errors:
       <<: *errors
+    models:
+      room: Quarto
+      user: Usuário
+    attributes:
+      room:
+        description: Descrição
+        location: Localização
+        title: Título
+      user:
+        bio: Biografia
+        email: Email
+        full_name: Nome Completo
+        location: Localização
+        password: Senha
+        password_confirmation: Confirme sua senha
