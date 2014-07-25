@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'mailcatcher', '0.5.12'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
